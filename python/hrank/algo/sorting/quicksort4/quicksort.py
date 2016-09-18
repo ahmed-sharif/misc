@@ -1,4 +1,4 @@
-# https://www.hackerrank.com/challenges/quicksort2
+# https://www.hackerrank.com/challenges/quicksort4
 
 total_swp = 0
 
@@ -38,7 +38,7 @@ def partition(items, l, r):
     pivot = items[l]
     j = l
     
-    for i in xrange(l + 1, len(items)):
+    for i in xrange(l + 1, r + 1):
         if items[i] <= pivot:
             j += 1
             items[j] , items[i] = items[i], items[j]

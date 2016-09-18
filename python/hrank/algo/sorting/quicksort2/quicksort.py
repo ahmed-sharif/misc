@@ -4,31 +4,24 @@ def print_arr(items):
         print i,
     print
 
-
-
 def quick_sort(items, l, r):
     if l >= r:
         return
     print_arr(items[l:r+1])
     p = partition(items, l, r)
-    print "pivot", p
     quick_sort(items, l, p - 1)
     quick_sort(items, p + 1, r)
-
-
 
 def partition(items, l, r):
     pivot = items[l]
     j = l
 
-    for i in xrange(l + 1, len(items)):
+    for i in xrange(l + 1, r + 1):
         if items[i] <= pivot:
             j += 1
             items[j] , items[i] = items[i], items[j]
     items[j], items[l] = items[l], items[j]
     return j
-            
-        
 
 # n = int(raw_input().strip())
 # items = map(int, raw_input().strip().split())
