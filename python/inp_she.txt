@@ -1,0 +1,13 @@
+aaaa
+aabb
+aaabbbc
+aaabbbcccdddd
+aaabbbcccd
+aaabb
+aaab
+aaaaabb
+aaabbbcc
+aaabbbccdd
+aaabbbcd
+aaabbbbbcccddd
+aaaaabbccccc

@@ -3,6 +3,7 @@
 # https://github.com/mission-peace/interview/blob/master/src/com/interview/string/SubstringSearch.java
 
 def compute_mps(lst, mps, saved_j,running_total):
+    n_compare = 0
     # # print lst
     n = len(lst)
     # mps = [0 for _ in range(n)]
@@ -11,9 +12,8 @@ def compute_mps(lst, mps, saved_j,running_total):
 
     if saved_j[running_total] != -1:
         #print "returning, saved_j[running_total]=", saved_j[running_total], ",running_total=",running_total
-        # saved_j[running_total] = -1
         saved_j[running_total + 1] = -1
-
+        print "return"
         return
 
     n = running_total
@@ -26,6 +26,7 @@ def compute_mps(lst, mps, saved_j,running_total):
 
     #print i, j    
     while i < n:
+        n_compare += 1
         if lst[i] == lst[j]:
             mps[i] = j + 1
             j += 1
@@ -37,8 +38,9 @@ def compute_mps(lst, mps, saved_j,running_total):
             else:
                 j = mps[j - 1]
 
-    saved_j[n] = j   
-    # return mps
+    saved_j[n] = j
+    #print "current set", lst[:running_total]
+    #print "total comparison", n_compare
 
 lst = "aabaabaaa"
 
@@ -58,13 +60,20 @@ j = None
 for xx in range(n):
     
     inp = raw_input().strip().split()
-
+    #print saved_j
     if inp[0] == '+':
+        current_set = lst[:running_total]
+
+        is_already_computed = ( (current_set + [int(inp[1])]) == lst[:running_total + 1])
+
         lst[running_total] = int(inp[1])
         running_total += 1 
         
-        
-        compute_mps(lst, mps, saved_j, running_total)
+        # print "adding", inp[1]
+        if not is_already_computed:
+            compute_mps(lst, mps, saved_j, running_total)
+        else:
+            compute_mps(lst, mps, saved_j, running_total)
         #print "adding"
         #print "in  = ", lst
         #print "out = ", mps
@@ -74,7 +83,7 @@ for xx in range(n):
     else:
         
         running_total -= 1
-
+        print "removing"
         compute_mps(lst, mps, saved_j,running_total)
         #print "removing"
         #print "in  = ", lst

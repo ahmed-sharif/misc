@@ -9,10 +9,9 @@ Find the maximum possible height of the stacks such that all of the stacks are e
 This means you must remove zero or more cylinders from the top of zero or more of the three stacks 
 until they're all the same height, then print the height. The removals must be performed in such a way as to
 maximize the height.
-
 """
-from collections import deque
 
+from collections import deque
 
 def is_all_sum_equal(smn1, smn2, smn3):
     return smn1 == smn2 and smn2 == smn3
@@ -43,7 +42,7 @@ while True:
         print sum1
         break
 
-    m_list = max_list(stack_list1, stack_list2, stack_list3, sum1, sum2, sum3)  
+    m_list = max_list(stack_list1, stack_list2, stack_list3, sum1, sum2, sum3)
 
     item = m_list.popleft()
     if m_list is stack_list1:

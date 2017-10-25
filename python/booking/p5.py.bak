@@ -1,0 +1,76 @@
+n = 3
+persons = [
+    ["museum", "wine", "bike"],
+    ["museum", "flower"],
+    ["hike", "bike"],
+    ["museum", "dance"]
+]
+
+events_description = [
+    ["bike", "wine"],
+    ["museum"],
+    ["flower"],
+    ["dance"]
+]
+
+events = [
+    "E1","E2","E3","E4"
+]
+
+import itertools
+
+def more_flat(item):
+    r = []
+    for i in item:
+        if type(i) is tuple:
+            r.extend(i)
+        else:
+            r.append(i)
+    return tuple(set(r))
+
+def flat_list(lst1, lst2):
+    #lst1 = [0, 2]
+    #lst2 = [0, 1, 3]
+    res = list(itertools.product(lst1,lst2))
+    res = [tuple(set(r)) for r in res]
+    res = [more_flat(r) for r in res]
+
+    return res
+
+
+satisfy_list = []
+
+for e in range(len(events)):
+    satisfy_list.append([])
+    for p in range(len(persons)):
+        s1 = set(events_description[e])
+        s2 = set(persons[p])
+
+        intsct = s1.intersection(s2)
+        if intsct:
+            print "Event", events[e],"[",events_description[e],"]", "can satisfy person",p,persons[p]
+            satisfy_list[e].append(p)
+
+print satisfy_list
+nlist = []
+previous_list = satisfy_list[0]
+
+
+for x in range(1, len(satisfy_list)):
+    tresult = []
+    #for item in previous_list:
+
+    r = flat_list(previous_list, satisfy_list[x])
+    print r
+    previous_list = r
+    #    tresult.append(r)
+    #b
+    #break
+fr = [len(s) for s in previous_list]
+print max(fr)
+
+
+
+
+
+

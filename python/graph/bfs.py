@@ -1,7 +1,7 @@
 from pprint import pprint
 from collections import deque
 
-# example from coremen
+# example from coremen 3e pg 596
 vertexes = ['r', 's', 't', 'u', 'v', 'w', 'x', 'y']
 
 edges = {}

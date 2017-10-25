@@ -1,0 +1,16 @@
+python easy_gcd.py <  test_case_easy_gcd/input01.txt ; cat  test_case_easy_gcd/output01.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input02.txt ; cat  test_case_easy_gcd/output02.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input03.txt ; cat  test_case_easy_gcd/output03.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input04.txt ; cat  test_case_easy_gcd/output04.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input05.txt ; cat  test_case_easy_gcd/output05.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input07.txt ; cat  test_case_easy_gcd/output07.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input08.txt ; cat  test_case_easy_gcd/output08.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input09.txt ; cat  test_case_easy_gcd/output09.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input10.txt ; cat  test_case_easy_gcd/output10.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input11.txt ; cat  test_case_easy_gcd/output11.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input12.txt ; cat  test_case_easy_gcd/output12.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input13.txt ; cat  test_case_easy_gcd/output13.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input16.txt ; cat  test_case_easy_gcd/output16.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input18.txt ; cat  test_case_easy_gcd/output18.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input19.txt ; cat  test_case_easy_gcd/output19.txt ; echo
+python easy_gcd.py <  test_case_easy_gcd/input20.txt ; cat  test_case_easy_gcd/output20.txt ; echo

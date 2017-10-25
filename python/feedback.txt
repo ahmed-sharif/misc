@@ -1,0 +1,11 @@
+Candidate has very good grasp of programming. Candidate used python for all programs.
+
+Questions:
+
+FizzBuzz: Quick and correct response at the first attempt.
+
+Log Parsing: Correctly solved the first part by using dictionary to store the time-stamps. The followup question was also correct, however they parsed the file twice, once to get all the possible process name and one more time to calculate the count. Correctly described how to run it on a growing log file.
+
+Rest API: Correctly solved the problem using a recursive function.
+
+Candidate has solid understanding of how to solve a problem programatically. I would definitely recommend for the next round.

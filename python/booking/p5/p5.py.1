@@ -1,0 +1,107 @@
+
+
+
+
+def get_length(lst):
+    return max(len(x.split(",")) for x in lst)
+
+
+n = 4
+persons = [
+    ["museum", "wine", "bike"],
+    ["museum", "flower"],
+    ["hike", "bike"],
+    ["museum", "dance"]
+]
+
+events_description = [
+    ["bike", "wine"],
+    ["museum"],
+    ["flower"],
+    ["dance"]
+]
+
+events = ["E1", "E2", "E3", "E4"]
+
+
+n = int(raw_input().strip())
+# events = ["E"+str(i+1) for i in range(n)]
+
+persons = []
+for _ in range(n):
+    inp = raw_input().strip().split()
+    persons.append(set(inp[2:]))
+
+
+events_description = []
+
+
+for _ in range(n):
+    inp = raw_input().strip().split()
+    events_description.append(set(inp[1:]))
+
+
+
+# import itertools
+
+satisfy_list = []
+
+for e in xrange(len(events_description)):
+    satisfy_list.append([])
+    found = False
+    if e  > 1:
+        if not satisfy_list[e -1] and satisfy_list[e-2]:
+            satisfy_list[e -1] = satisfy_list[e-2]
+    # s1 = set(events_description[e])        
+    s1 = events_description[e]
+    for p in xrange(len(persons)):
+        
+        # s2 = set(persons[p])
+
+        intsct = s1.intersection(persons[p])
+        if intsct:
+            found = True
+            #print "Event", events[e],"[",events_description[e],"]", "can satisfy person",p,persons[p]
+            #
+            if e==0:
+                satisfy_list[e].append(str(p))
+            else:
+                #for indx in range(len(satisfy_list[e - 1])):
+                if satisfy_list[e - 1]:
+                    for item in satisfy_list[e - 1]:
+                        if str(p) not in item:
+                            satisfy_list[e].append(item + "," +str(p))
+                        else:
+                            satisfy_list[e].append(item)
+                else:
+                    satisfy_list[e].append(str(p))
+
+
+# print satisfy_list[-1]
+#for i in satisfy_list:
+#    print i
+print satisfy_list
+if not satisfy_list[-1]:
+    if n == 1:
+        print 0
+    else:
+        if n == 2:
+            if satisfy_list[-2]:
+                # res = max(len(x) for x in satisfy_list[-2])
+                print get_length(satisfy_list[-2])
+                
+            else:
+                print 0
+
+        else:
+            # satisfy_list[-1] = satisfy_list[-2]
+            for start in range(n -1, -1, -1):
+                if satisfy_list[start]:
+                    print get_length(satisfy_list[start])
+                    break
+            else:
+                print 0
+
+else:
+    print get_length(satisfy_list[-1])
+ 

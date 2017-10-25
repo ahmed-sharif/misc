@@ -1,0 +1,76 @@
+import time
+
+def generate_bionomial_coeff(row):
+    items = [0 for _ in range(row + 1)]
+    items[0] = 1
+    items[row] = 1
+
+    for j in range(1, row):
+        if j & (row - j) == 0:
+            items[j] = 1
+        else:
+            items[j] = 0
+    return items
+
+
+def p_item(itm, odd_evn, n):
+    """
+    for i in itm:
+        print "%-5s" % bin(i)[2:],
+    print
+    """
+    print "---------------------------------------------"
+    start=0
+    for i in itm:
+        if start == n:
+            break
+        print "%-5d" % i,
+        start = start + 1
+    print
+    start=0
+    for i in odd_evn:
+        if start == n:
+            break
+        print "%-5d" % i,
+        start = start + 1
+    print
+
+    result = generate_bionomial_coeff(n - 1)
+    # print result
+
+    for i in result:
+        print "%-5d" % i,
+        
+    print
+
+
+n = 20
+items = []
+odd_even = []
+for _ in range(n):
+    items.append([0 for _ in range(n)])
+    odd_even.append([0 for _ in range(n)])
+
+for i in range(n):
+    items[i][0] = 1
+    items[i][i] = 1
+    odd_even[i][0] = 1
+    odd_even[i][i] = 1
+
+for i in range(1,n):
+    for j in range(1, i):
+        items[i][j] = items[i-1][j] + items[i-1][j-1]
+        if j & (i-j) == 0:
+            odd_even[i][j] = 1
+        else:
+            odd_even[i][j] = 0
+
+
+for i, item in enumerate(items):
+    p_item(item,odd_even[i],i+1)
+
+
+
+
+
+print generate_bionomial_coeff(4)
